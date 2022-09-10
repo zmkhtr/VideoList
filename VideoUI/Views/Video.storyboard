@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="VideoViewController" customModule="VideoUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9VS-en-eWL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xwu-mw-mRe">
+                                    <size key="itemSize" width="351" height="555"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="LFM-gD-IU9" customClass="VideoCell" customModule="VideoUI" customModuleProvider="target">
+                                        <rect key="frame" x="31.5" y="0.0" width="351" height="555"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="l6k-wp-HQ8">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="555"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyd-gR-Efu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="555"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lch-1l-Ntz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="555"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="↻"/>
+                                                    <connections>
+                                                        <action selector="retryButtonTapped" destination="LFM-gD-IU9" eventType="touchUpInside" id="kfq-rW-aBp"/>
+                                                    </connections>
+                                                </button>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="798-Tv-t0L">
+                                                    <rect key="frame" x="165.5" y="267.5" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tyd-gR-Efu" secondAttribute="trailing" id="1rm-RU-jOa"/>
+                                                <constraint firstItem="lch-1l-Ntz" firstAttribute="leading" secondItem="l6k-wp-HQ8" secondAttribute="leading" id="2ud-4I-hNf"/>
+                                                <constraint firstAttribute="trailing" secondItem="lch-1l-Ntz" secondAttribute="trailing" id="8Kg-xS-ctz"/>
+                                                <constraint firstItem="lch-1l-Ntz" firstAttribute="top" secondItem="l6k-wp-HQ8" secondAttribute="top" id="IfN-CV-9Up"/>
+                                                <constraint firstAttribute="bottom" secondItem="lch-1l-Ntz" secondAttribute="bottom" id="JrD-S7-jTY"/>
+                                                <constraint firstItem="798-Tv-t0L" firstAttribute="centerX" secondItem="l6k-wp-HQ8" secondAttribute="centerX" id="RIN-5k-xc2"/>
+                                                <constraint firstItem="798-Tv-t0L" firstAttribute="centerY" secondItem="l6k-wp-HQ8" secondAttribute="centerY" id="h0v-aa-bQf"/>
+                                                <constraint firstItem="tyd-gR-Efu" firstAttribute="leading" secondItem="l6k-wp-HQ8" secondAttribute="leading" id="hSx-VL-sSQ"/>
+                                                <constraint firstItem="tyd-gR-Efu" firstAttribute="top" secondItem="l6k-wp-HQ8" secondAttribute="top" id="lQl-AF-sZQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="tyd-gR-Efu" secondAttribute="bottom" id="tIQ-wC-ZnS"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="351" height="555"/>
+                                        <connections>
+                                            <outlet property="videoContainer" destination="tyd-gR-Efu" id="Rjf-gi-dFH"/>
+                                            <outlet property="videoLoadingIndicator" destination="798-Tv-t0L" id="OLe-ho-YGt"/>
+                                            <outlet property="videoRetryButton" destination="lch-1l-Ntz" id="PuG-Hh-0Ob"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="7za-LO-M8g"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="K9R-5E-slQ"/>
+                                    <outlet property="prefetchDataSource" destination="Y6W-OH-hqX" id="cDk-1T-F7I"/>
+                                </connections>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubg-nT-xUT">
+                                <rect key="frame" x="40" y="448" width="334" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9VS-en-eWL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Bf-fM-1rQ"/>
+                            <constraint firstItem="Ubg-nT-xUT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="WGW-GW-6iP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ubg-nT-xUT" secondAttribute="trailing" constant="40" id="a9e-Mw-32P"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9VS-en-eWL" secondAttribute="bottom" id="b80-ln-ce5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9VS-en-eWL" secondAttribute="trailing" id="ccA-b3-2Vb"/>
+                            <constraint firstItem="9VS-en-eWL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qbc-eg-gc9"/>
+                            <constraint firstItem="Ubg-nT-xUT" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="zOs-bY-9AY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="9VS-en-eWL" id="yDh-g3-Zv9"/>
+                        <outlet property="errorView" destination="Ubg-nT-xUT" id="1qz-3x-rNV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14.492753623188406" y="76.339285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

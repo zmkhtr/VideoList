@@ -1,0 +1,10 @@
+/* 
+  Video.strings
+  VideoList
+
+  Created by PT.Koanba on 10/09/22.
+  
+*/
+
+"VIDEO_VIEW_TITLE" = "My Video";
+"VIDEO_VIEW_CONNECTION_ERROR" = "Couldn't connect to server";
