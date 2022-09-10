@@ -6,7 +6,11 @@
 //
 
 import AVFoundation
-
+/*
+ This is some of the class, i want to ask how to test drive it properly?.
+ This is the documentation i follow:
+ https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/HTTPLiveStreaming/HTTPLiveStreaming.html
+ */
 public final class HLSVideoLoader: NSObject, AVAssetDownloadDelegate {
     
     private let configuration: URLSessionConfiguration

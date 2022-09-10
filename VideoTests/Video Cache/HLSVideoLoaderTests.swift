@@ -7,7 +7,9 @@
 
 import XCTest
 import Video
-
+/*
+ This is the test
+ */
 class HLSVideoLoaderTests: XCTestCase {
     
 //    func test_init_doesNotMessageStoreUponCreation() {

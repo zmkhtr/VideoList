@@ -13,12 +13,15 @@ import AVFoundation
 
 class VideoAcceptanceTests: XCTestCase {
     
+    /*
+     Still cannot pass this test don't know why(?).
+     */
     func test_onLaunch_displaysRemoteVideoWhenCustomerHasConnectivity() {
         let video = launch(httpClient: .online(response), store: .empty)
         video.loadViewIfNeeded()
         
-//        XCTAssertEqual(video.numberOfRenderedVideoView(), 1)
-//        XCTAssertEqual(video.playerItem(at: 0), makePlayerItem())
+        XCTAssertEqual(video.numberOfRenderedVideoView(), 1)
+        XCTAssertEqual(video.playerItem(at: 0), makePlayerItem())
     }
 
     func test_onLaunch_displayEmptyVideoWhenCustomerHasNoConnectivity() {
