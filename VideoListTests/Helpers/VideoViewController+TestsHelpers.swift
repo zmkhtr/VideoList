@@ -59,6 +59,17 @@ extension VideoViewController {
         return simulateVideoViewVisible(at: index)?.player?.currentItem
     }
     
+    func playerItemURL(at index: Int) -> URL? {
+        let asset = self.playerItem(at: index)?.asset
+         if asset == nil {
+             return nil
+         }
+         if let urlAsset = asset as? AVURLAsset {
+             return urlAsset.url
+         }
+         return nil
+    }
+    
     var errorMessage: String? {
         return errorView?.text
     }

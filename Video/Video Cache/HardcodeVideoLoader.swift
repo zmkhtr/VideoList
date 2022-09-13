@@ -13,7 +13,7 @@ public final class HardcodeVideoLoader: VideoLoader {
 
     private let videos: [Video]
     
-    public init(videos: [Video] = HardcodeDataProvider.getVideos()) {
+    public init(videos: [Video]) {
         self.videos = videos
     }
     

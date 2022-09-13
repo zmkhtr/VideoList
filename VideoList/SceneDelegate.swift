@@ -12,16 +12,14 @@ import VideoUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
-    private lazy var httpClient: HTTPClient = {
-        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-    }()
-    
+    private var videos = [Video]()
     private lazy var store: VideoURLStore = {
         try! UserDefaultsVideoURLStore(userDefaults: UserDefaults(suiteName: "videoAppSuite"))
     }()
-    convenience init(httpClient: HTTPClient, store: VideoURLStore) {
+    
+    convenience init(videos: [Video] = HardcodeDataProvider.getVideos(), store: VideoURLStore) {
         self.init()
-        self.httpClient = httpClient
+        self.videos = videos
         self.store = store
     }
     
@@ -33,9 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
      
     func configureWindow() {
-        let remoteURL = URL(string: "https://api-main.kipaskipas.com/api/v1/public/feeds/channels?code=tiktok&page=0&size=20")!
-
-        let remoteVideoLoader = RemoteVideoLoader(url: remoteURL, client: httpClient)
+        let remoteVideoLoader = HardcodeVideoLoader(videos: self.videos)
         let avVideoLoader = HLSVideoLoader(identifier: "cacheHLSVideoIdentifier", store: store)
         
         
