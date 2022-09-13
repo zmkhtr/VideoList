@@ -80,13 +80,11 @@ class LoadVideoFromRemoteUseCaseTests: XCTestCase {
         
         let item1 = makeItem(
             id: UUID().uuidString,
-            hlsURL: URL(string: "http://a-url.com/media/stream/1645775133538/1645775133538.m3u8")!,
-            thumbnailURL: URL(string: "https://asset.anyurl.com/img/media/1645775133538_540x960.jpg")!)
+            hlsURL: URL(string: "http://a-url.com/media/stream/1645775133538/1645775133538.m3u8")!)
         
         let item2 = makeItem(
             id: UUID().uuidString,
-            hlsURL: nil,
-            thumbnailURL: URL(string: "https://asset.anyurl.com/img/media/1645775133538_540x960.jpg")!)
+            hlsURL: nil)
     
         let items = [item1.model, item2.model]
         
@@ -124,8 +122,8 @@ class LoadVideoFromRemoteUseCaseTests: XCTestCase {
         return .failure(error)
     }
     
-    private func makeItem(id: String, hlsURL: URL? = nil, thumbnailURL: URL) -> (model: Video, json: [String: Any]) {
-        let item = Video(id: id, hlsURL: hlsURL, thumbnailURL: thumbnailURL)
+    private func makeItem(id: String, hlsURL: URL? = nil) -> (model: Video, json: [String: Any]) {
+        let item = Video(id: id, hlsURL: hlsURL)
         let json =  [
             "id": "2c948697825d276801825d73ad1a0217",
             "typePost": "social",
@@ -139,7 +137,7 @@ class LoadVideoFromRemoteUseCaseTests: XCTestCase {
                         "type": "video",
                         "url": "https://asset.anyurl.com/img/media/1645775133538.mp4",
                         "thumbnail": [
-                            "large": thumbnailURL.absoluteString,
+                            "large": anyURL().absoluteString,
                             "medium": "https://asset.anyurl.com/img/media/1659407400010_288x512.jpg",
                             "small": "https://asset.anyurl.com/img/media/1659407400010_144x256.jpg"
                         ],

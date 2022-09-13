@@ -17,8 +17,7 @@ public final class VideoItemsMapper {
             data.content.map {
                 Video(
                     id: $0.post.medias[0].id,
-                    hlsURL: $0.post.medias[0].hlsUrl,
-                    thumbnailURL: $0.post.medias[0].thumbnail.large
+                    hlsURL: $0.post.medias[0].hlsUrl
                 )
             }
         }

@@ -26,6 +26,6 @@ func anyData() -> Data {
 }
 
 func uniqueVideo() -> Video {
-    return Video(id: UUID().uuidString, hlsURL: anyURL(), thumbnailURL: anyURL())
+    return Video(id: UUID().uuidString, hlsURL: anyURL())
 }
 

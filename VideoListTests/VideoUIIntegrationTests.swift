@@ -373,7 +373,7 @@ final class VideoUIIntegrationTests: XCTestCase {
     
     
     private func makeVideo(hlsURL: URL = anyHLSURL()) -> Video {
-        return Video(id: UUID().uuidString, hlsURL: hlsURL, thumbnailURL: anyURL())
+        return Video(id: UUID().uuidString, hlsURL: hlsURL)
     }
     
     private func makePlayerLayer() -> AVPlayerLayer {

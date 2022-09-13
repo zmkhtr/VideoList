@@ -27,7 +27,7 @@ func anyHLSURL() -> URL {
 }
 
 func anyVideo() -> Video {
-    return Video(id: UUID().uuidString, hlsURL: anyHLSURL(), thumbnailURL: anyURL())
+    return Video(id: UUID().uuidString, hlsURL: anyHLSURL())
 }
 
 extension XCTestCase {

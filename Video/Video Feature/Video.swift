@@ -10,11 +10,9 @@ import Foundation
 public struct Video: Hashable {
     public let id: String
     public let hlsURL: URL?
-    public let thumbnailURL: URL
     
-    public init(id: String, hlsURL: URL?, thumbnailURL: URL) {
+    public init(id: String, hlsURL: URL?) {
         self.id = id
         self.hlsURL = hlsURL
-        self.thumbnailURL = thumbnailURL
     }
 }
