@@ -31,9 +31,9 @@ public class HardcodeDataProvider {
             "https://asset.kipaskipas.com/media/stream/1653890871105/1653890871105.m3u8",
             "https://asset.kipaskipas.com/media/stream/1648030330405/1648030330405.m3u8",
             "https://asset.kipaskipas.com/media/stream/1648803373703/1648803373703.m3u8",
-            "https://asset.kipaskipas.com/media/stream/1639541979813/1639541979813.m3u8",
-            "https://asset.kipaskipas.com/media/stream/1660882055107/1660882055107.m3u8",
-            "https://asset.kipaskipas.com/media/stream/1643951380486/1643951380486.m3u8"
+            "https://asset.kipaskipas.com/media/stream/1659932402564/1659932402564.m3u8",
+            "https://asset.kipaskipas.com/media/stream/1643951380486/1643951380486.m3u8",
+            "https://asset.kipaskipas.com/media/stream/1650271648413/1650271648413.m3u8"
         ].map { hlsURL in
             Video(id: UUID().uuidString, hlsURL: URL(string: hlsURL)!)
         }
