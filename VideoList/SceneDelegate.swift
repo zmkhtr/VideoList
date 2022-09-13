@@ -12,12 +12,12 @@ import VideoUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
-    private var videos = [Video]()
+    private var videos: [Video] = HardcodeDataProvider.getVideos()
     private lazy var store: VideoURLStore = {
         try! UserDefaultsVideoURLStore(userDefaults: UserDefaults(suiteName: "videoAppSuite"))
     }()
     
-    convenience init(videos: [Video] = HardcodeDataProvider.getVideos(), store: VideoURLStore) {
+    convenience init(videos: [Video], store: VideoURLStore) {
         self.init()
         self.videos = videos
         self.store = store
