@@ -77,6 +77,9 @@
 		BF7ADA8328CC4A00000555C6 /* VideoViewController+TestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ADA8228CC4A00000555C6 /* VideoViewController+TestsHelpers.swift */; };
 		BF7ADA8528CC4BEA000555C6 /* VideoCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ADA8428CC4BEA000555C6 /* VideoCell+TestHelpers.swift */; };
 		BF7ADA8728CC4CC7000555C6 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ADA8628CC4CC7000555C6 /* UIControl+TestHelpers.swift */; };
+		BFFB763B28D0DAC100CE2441 /* HardcodeVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB763A28D0DAC100CE2441 /* HardcodeVideoLoader.swift */; };
+		BFFB763D28D0DAFD00CE2441 /* HardcodeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB763C28D0DAFD00CE2441 /* HardcodeDataProvider.swift */; };
+		BFFB763F28D0DCB400CE2441 /* HardcodeVideoLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB763E28D0DCB400CE2441 /* HardcodeVideoLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +238,9 @@
 		BF7ADA8228CC4A00000555C6 /* VideoViewController+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoViewController+TestsHelpers.swift"; sourceTree = "<group>"; };
 		BF7ADA8428CC4BEA000555C6 /* VideoCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		BF7ADA8628CC4CC7000555C6 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		BFFB763A28D0DAC100CE2441 /* HardcodeVideoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodeVideoLoader.swift; sourceTree = "<group>"; };
+		BFFB763C28D0DAFD00CE2441 /* HardcodeDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodeDataProvider.swift; sourceTree = "<group>"; };
+		BFFB763E28D0DCB400CE2441 /* HardcodeVideoLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodeVideoLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +455,8 @@
 				BF7ADA3828CB799C000555C6 /* VideoURLStore.swift */,
 				BF7ADA4228CB875B000555C6 /* UserDefaultsVideoURLStore.swift */,
 				BF7ADA4828CB933F000555C6 /* HLSVideoLoader.swift */,
+				BFFB763A28D0DAC100CE2441 /* HardcodeVideoLoader.swift */,
+				BFFB763C28D0DAFD00CE2441 /* HardcodeDataProvider.swift */,
 			);
 			path = "Video Cache";
 			sourceTree = "<group>";
@@ -461,6 +469,7 @@
 				BF7ADA4028CB847C000555C6 /* LoadVideoURLFromCacheUseCaseTests.swift */,
 				BF7ADA4428CB8819000555C6 /* UserDefaultsVideoURLStoreTests.swift */,
 				BF7ADA4E28CBAA69000555C6 /* HLSVideoLoaderTests.swift */,
+				BFFB763E28D0DCB400CE2441 /* HardcodeVideoLoaderTests.swift */,
 			);
 			path = "Video Cache";
 			sourceTree = "<group>";
@@ -804,7 +813,9 @@
 				BF7ADA3728CB7905000555C6 /* LocalVideoURLLoader.swift in Sources */,
 				BF125AFD28C63B4000BC44C7 /* VideoItemsMapper.swift in Sources */,
 				BF125AF728C639E100BC44C7 /* RemoteVideoLoader.swift in Sources */,
+				BFFB763B28D0DAC100CE2441 /* HardcodeVideoLoader.swift in Sources */,
 				BF7ADA5F28CBB337000555C6 /* VideoLoadingViewModel.swift in Sources */,
+				BFFB763D28D0DAFD00CE2441 /* HardcodeDataProvider.swift in Sources */,
 				BF125B1428C799F400BC44C7 /* HTTPURLResponse.swift in Sources */,
 				BF7ADA4328CB875B000555C6 /* UserDefaultsVideoURLStore.swift in Sources */,
 				BF125AF928C63A7A00BC44C7 /* Video.swift in Sources */,
@@ -835,6 +846,7 @@
 				BF7ADA5628CBAD2C000555C6 /* URLProtocolStub.swift in Sources */,
 				BF125B0128C6413400BC44C7 /* HTTPClientSpy.swift in Sources */,
 				BF7ADA3B28CB7C23000555C6 /* CacheVideoURLUseCaseTests.swift in Sources */,
+				BFFB763F28D0DCB400CE2441 /* HardcodeVideoLoaderTests.swift in Sources */,
 				BF7ADA3F28CB821F000555C6 /* VideoURLStoreSpy.swift in Sources */,
 				BF7ADA4128CB847C000555C6 /* LoadVideoURLFromCacheUseCaseTests.swift in Sources */,
 				BF7ADA5328CBAD08000555C6 /* URLSessionHTTPClientTests.swift in Sources */,
