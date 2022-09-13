@@ -60,7 +60,7 @@ extension VideoViewController {
     }
     
     var errorMessage: String? {
-        return errorView?.text
+        return errorView.text
     }
     
     var isShowingLoadingIndicator : Bool {

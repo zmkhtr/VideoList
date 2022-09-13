@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bgh-ry-ara">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Video View Controller-->
+        <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="VideoViewController" customModule="VideoUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="LFM-gD-IU9" customClass="VideoCell" customModule="VideoUI" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="LFM-gD-IU9">
                                         <rect key="frame" x="31.5" y="0.0" width="351" height="555"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="l6k-wp-HQ8">
@@ -44,9 +44,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="↻"/>
-                                                    <connections>
-                                                        <action selector="retryButtonTapped" destination="LFM-gD-IU9" eventType="touchUpInside" id="kfq-rW-aBp"/>
-                                                    </connections>
                                                 </button>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="798-Tv-t0L">
                                                     <rect key="frame" x="165.5" y="267.5" width="20" height="20"/>
@@ -66,11 +63,6 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="351" height="555"/>
-                                        <connections>
-                                            <outlet property="videoContainer" destination="tyd-gR-Efu" id="Rjf-gi-dFH"/>
-                                            <outlet property="videoLoadingIndicator" destination="798-Tv-t0L" id="OLe-ho-YGt"/>
-                                            <outlet property="videoRetryButton" destination="lch-1l-Ntz" id="PuG-Hh-0Ob"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -98,14 +90,74 @@
                             <constraint firstItem="Ubg-nT-xUT" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="zOs-bY-9AY"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="9VS-en-eWL" id="yDh-g3-Zv9"/>
-                        <outlet property="errorView" destination="Ubg-nT-xUT" id="1qz-3x-rNV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-14.492753623188406" y="76.339285714285708"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="wg1-AU-VPg">
+            <objects>
+                <collectionViewController id="Bgh-ry-ara" customClass="VideoViewController" customModule="VideoUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KYc-DL-S6n" customClass="VideoView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="joe-Ez-kps">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="ltb-r4-vvw" customClass="VideoCell" customModule="VideoUI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9tw-O7-94K">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeS-OO-6BH">
+                                            <rect key="frame" x="39" y="22" width="50" height="84"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="↻"/>
+                                            <connections>
+                                                <action selector="retryButtonTapped" destination="ltb-r4-vvw" eventType="touchUpInside" id="HQo-1G-Oyy"/>
+                                            </connections>
+                                        </button>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="W04-Tk-nky">
+                                            <rect key="frame" x="54" y="54" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-Us-Lud">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4q1-Us-Lud" firstAttribute="leading" secondItem="9tw-O7-94K" secondAttribute="leading" id="0ej-2D-Qfb"/>
+                                        <constraint firstItem="W04-Tk-nky" firstAttribute="centerX" secondItem="9tw-O7-94K" secondAttribute="centerX" id="9Cg-j5-HoL"/>
+                                        <constraint firstItem="eeS-OO-6BH" firstAttribute="centerY" secondItem="9tw-O7-94K" secondAttribute="centerY" id="GDX-ON-H6M"/>
+                                        <constraint firstItem="W04-Tk-nky" firstAttribute="centerY" secondItem="9tw-O7-94K" secondAttribute="centerY" id="Xom-YD-8QU"/>
+                                        <constraint firstItem="4q1-Us-Lud" firstAttribute="top" secondItem="9tw-O7-94K" secondAttribute="top" id="bq2-QP-Mne"/>
+                                        <constraint firstItem="eeS-OO-6BH" firstAttribute="centerX" secondItem="9tw-O7-94K" secondAttribute="centerX" id="l47-Yt-nY2"/>
+                                        <constraint firstAttribute="bottom" secondItem="4q1-Us-Lud" secondAttribute="bottom" id="p98-gf-xbV"/>
+                                        <constraint firstAttribute="trailing" secondItem="4q1-Us-Lud" secondAttribute="trailing" id="wkV-VM-OlC"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="videoContainer" destination="W04-Tk-nky" id="5Az-ba-kXN"/>
+                                    <outlet property="videoLoadingIndicator" destination="W04-Tk-nky" id="gQM-fz-69f"/>
+                                    <outlet property="videoRetryButton" destination="eeS-OO-6BH" id="OQO-OO-lmZ"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49A-GG-hQw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="779"/>
         </scene>
     </scenes>
     <resources>

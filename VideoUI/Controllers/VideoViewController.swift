@@ -12,9 +12,19 @@ public protocol VideoViewControllerDelegate {
     func didRequestVideoRefresh()
 }
 
-public final class VideoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout, VideoLoadingView, VideoErrorView {
-    @IBOutlet private(set) public var errorView: UILabel!
-    @IBOutlet private(set) public var collectionView: UICollectionView!
+public final class VideoViewController: UICollectionViewController, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout, VideoLoadingView, VideoErrorView {
+//    @IBOutlet private(set) public var errorView: UILabel!
+//    @IBOutlet private(set) public var collectionView: UICollectionView!
+    
+    public lazy var errorView: UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(10)
+        label.numberOfLines = 0
+        view.addSubview(label)
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        return label
+    }()
     
     public lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
@@ -43,7 +53,7 @@ public final class VideoViewController: UIViewController, UICollectionViewDelega
     }
 
     @objc private func refreshCollectionView() {
-        errorView?.isHidden = true
+        errorView.isHidden = true
         stopPlayingVideo()
         delegate?.didRequestVideoRefresh()
     }
@@ -64,19 +74,19 @@ public final class VideoViewController: UIViewController, UICollectionViewDelega
     }
 
     public func display(_ viewModel: VideoErrorViewModel) {
-        errorView?.isHidden = false
-        errorView?.text = viewModel.message
+        errorView.isHidden = false
+        errorView.text = viewModel.message
     }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionModel.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return cellController(forRowAt: indexPath).view(in: collectionView, indexPath: indexPath)
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
     
@@ -107,7 +117,7 @@ public final class VideoViewController: UIViewController, UICollectionViewDelega
     }
     
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         getStopedScrollCellIndex(scrollView)
     }
     

@@ -18,7 +18,7 @@ class VideoAcceptanceTests: XCTestCase {
      */
     func test_onLaunch_displaysRemoteVideoWhenCustomerHasConnectivity() {
         let video = launch(httpClient: .online(response), store: .empty)
-        video.loadViewIfNeeded()
+//        video.loadViewIfNeeded()
         
         XCTAssertEqual(video.numberOfRenderedVideoView(), 1)
         XCTAssertEqual(video.playerItem(at: 0), makePlayerItem())
