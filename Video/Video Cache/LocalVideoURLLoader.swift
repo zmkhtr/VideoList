@@ -23,8 +23,8 @@ extension LocalVideoURLLoader: VideoURLCache {
         case failed
     }
     
-    public func save(localPath localUrl: URL, for url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(localUrl, for: url) { [weak self] result in
+    public func save(localPath: String, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(localPath, for: url) { [weak self] result in
             guard self != nil else { return }
             
             completion(result.mapError { _ in SaveError.failed } )
@@ -69,7 +69,7 @@ extension LocalVideoURLLoader {
             task.complete(with: result
                             .mapError { _ in LoadError.failed}
                             .flatMap { data in
-                data.map { .success($0) } ?? .failure(LoadError.notFound)
+                                data.map { .success(URL(string: $0)!) } ?? .failure(LoadError.notFound)
             })
         }
         return task

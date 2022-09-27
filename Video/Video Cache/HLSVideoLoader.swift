@@ -46,7 +46,7 @@ extension HLSVideoLoader: AVVideoLoader {
             case let .success(localPath):
                 let baseURL = URL(fileURLWithPath: NSHomeDirectory())
                 if let localPath = localPath {
-                    let assetURL = baseURL.appendingPathComponent(localPath.absoluteString)
+                    let assetURL = baseURL.appendingPathComponent(localPath)
                     let asset = AVURLAsset(url: assetURL)
                     if let cache = asset.assetCache, cache.isPlayableOffline {
                         completion(.success(AVPlayerItem(asset: asset)))
@@ -87,12 +87,12 @@ extension HLSVideoLoader: AVVideoLoader {
 
 extension HLSVideoLoader {
     public func urlSession(_ session: URLSession, assetDownloadTask: AVAssetDownloadTask, didFinishDownloadingTo location: URL) {
-        saveIgnoringResult(assetDownloadTask, location)
+        saveIgnoringResult(assetDownloadTask, location.relativePath)
     }
 }
 
 private extension HLSVideoLoader {
-    func saveIgnoringResult(_ assetDownloadTask: AVAssetDownloadTask, _ location: URL) {
+    func saveIgnoringResult(_ assetDownloadTask: AVAssetDownloadTask, _ location: String) {
         if let url = task.first(where: { $0.value == assetDownloadTask })?.key {
             store.insert(location, for: url) { _ in }
         }

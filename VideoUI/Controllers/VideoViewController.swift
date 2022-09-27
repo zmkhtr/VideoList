@@ -80,6 +80,10 @@ public final class VideoViewController: UIViewController, UICollectionViewDelega
         cancelCellControllerLoad(forRowAt: indexPath)
     }
     
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath).willDisplay(cell, in: collectionView, indexPath: indexPath)
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()

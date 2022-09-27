@@ -27,9 +27,9 @@ public final class UserDefaultsVideoURLStore: VideoURLStore {
         self.userDefaults = userDefaults
     }
     
-    public func insert(_ localUrl: URL, for url: URL, completion: @escaping (InsertionResult) -> Void) {
+    public func insert(_ localPath: String, for url: URL, completion: @escaping (InsertionResult) -> Void) {
         let key = url.absoluteString
-        userDefaults.set(localUrl, forKey: key)
+        userDefaults.set(localPath, forKey: key)
         if userDefaults.object(forKey: key) != nil {
             completion(.success(()))
         } else {
@@ -38,7 +38,7 @@ public final class UserDefaultsVideoURLStore: VideoURLStore {
     }
     
     public func retrieve(videoPathForURL url: URL, completion: @escaping (RetrievalResult) -> Void) {
-        if let videoPath = userDefaults.url(forKey: url.absoluteString) {
+        if let videoPath = userDefaults.string(forKey: url.absoluteString) {
             completion(.success(videoPath))
         } else {
             completion(.success(.none))

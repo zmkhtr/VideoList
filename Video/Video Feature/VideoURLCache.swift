@@ -10,5 +10,5 @@ import Foundation
 public protocol VideoURLCache {
     typealias Result = Swift.Result<Void, Error>
 
-    func save(localPath localUrl: URL, for url: URL, completion: @escaping (Result) -> Void)
+    func save(localPath: String, for url: URL, completion: @escaping (Result) -> Void)
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 public protocol VideoURLStore {
-    typealias RetrievalResult = Swift.Result<URL?, Error>
+    typealias RetrievalResult = Swift.Result<String?, Error>
     typealias InsertionResult = Swift.Result<Void, Error>
     
-    func insert(_ localUrl: URL, for url: URL, completion: @escaping (InsertionResult) -> Void)
+    func insert(_ localPath: String, for url: URL, completion: @escaping (InsertionResult) -> Void)
     func retrieve(videoPathForURL url: URL, completion: @escaping (RetrievalResult) -> Void)
 }
